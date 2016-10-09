@@ -1,7 +1,23 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.hloong.base">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hloong.base">
 
-    <application android:allowBackup="true" android:label="@string/app_name"
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
         android:supportsRtl="true">
+        <!-- 您从百度网站获取的APP KEY -->
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="41dd7b33b6" /> <!-- abcd1234 -->
+        <!-- 渠道商编号 -->
+        <meta-data
+            android:name="BaiduMobAd_CHANNEL"
+            android:value="Baidu Market" />
+
+        <activity android:name="com.hloong.base.base.BaseActivity"/>
+
+
 
     </application>
 
