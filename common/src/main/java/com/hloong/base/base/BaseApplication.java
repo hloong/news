@@ -2,15 +2,27 @@ package com.hloong.base.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
+import android.support.multidex.MultiDex;
 
 /**
  * Created by hloong on 2016/10/10.
  */
 
 public class BaseApplication extends Application{
+    private static BaseApplication baseApplication;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        baseApplication = this;
+    }
+
+    public static Context getAppContext(){
+        return baseApplication;
+    }
+    public static Resources getAppResources(){
+        return baseApplication.getResources();
     }
 
     @Override

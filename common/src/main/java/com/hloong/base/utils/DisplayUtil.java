@@ -11,7 +11,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.jaydenxiao.common.baseapp.BaseApplication;
+import com.hloong.base.base.BaseApplication;
 
 
 /**

@@ -27,4 +27,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     compile project(':common')
+    compile project(':library:jcvideoplayer')
+    compile project(':library:photoPicker')
+    compile project(':library:UserGuide')
+    compile project(':library:zxingScan')
+    compile project(':library:selectordialog')
+    compile project(':library:irecyclerview')
 }
