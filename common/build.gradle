@@ -38,6 +38,7 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
@@ -46,6 +47,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jakewharton:butterknife:7.0.1'
-
+    compile 'com.commit451:PhotoView:1.2.4'//图片缩放
+    compile 'com.github.clans:fab:1.6.4'//悬浮动画菜单
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'//菜单栏
     testCompile 'junit:junit:4.12'
 }
