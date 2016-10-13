@@ -30,6 +30,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         ButterKnife.bind(this);
         mContext = this;
         mPresenter = TUtil.getT(this,0);
+        mModel = TUtil.getT(this,1);
         if (mPresenter != null){
             mPresenter.mContext = this;
         }

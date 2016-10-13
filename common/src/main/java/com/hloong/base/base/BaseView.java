@@ -7,15 +7,9 @@ package com.hloong.base.base;
  */
 
 public interface BaseView {
-    void showMessage(String msg);
-
-    void close();
-
-    void showProgress(String msg);
-
-    void showProgress(String msg, int progress);
-
-    void hideProgress();
-
-    void showErrorMessage(String msg,String content);
+    void showLoading(String title);
+    void stopLoading();
+    void showErrorTip(String msg);
+//    void close();
+//    void showProgress(String msg, int progress);
 }
