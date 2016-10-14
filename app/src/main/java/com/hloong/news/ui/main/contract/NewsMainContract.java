@@ -14,7 +14,7 @@ import rx.Observable;
  * Created by xsf
  * on 2016.09.11:53
  */
-public interface NewsContract{
+public interface NewsMainContract {
 
     interface Model extends BaseModel {
         Observable< List<NewsChannelTable> > NewsChannels();

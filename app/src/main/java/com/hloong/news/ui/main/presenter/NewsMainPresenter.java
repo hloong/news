@@ -3,7 +3,7 @@ package com.hloong.news.ui.main.presenter;
 import com.hloong.base.rx.RxSubscriber;
 import com.hloong.news.app.AppConstant;
 import com.hloong.news.bean.NewsChannelTable;
-import com.hloong.news.ui.main.contract.NewsContract;
+import com.hloong.news.ui.main.contract.NewsMainContract;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import rx.functions.Action1;
  * Created by xsf
  * on 2016.09.17:43
  */
-public class NewsPresenter extends NewsContract.Presenter{
+public class NewsMainPresenter extends NewsMainContract.Presenter{
 
     @Override
     public void onStart() {

@@ -34,8 +34,8 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         if (mPresenter != null){
             mPresenter.mContext = this;
         }
-        initViews(savedInstanceState);
-        initPresenter();
+        this.initViews(savedInstanceState);
+        this.initPresenter();
     }
 
     private void doBeforeView() {

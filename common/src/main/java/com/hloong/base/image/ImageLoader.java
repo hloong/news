@@ -89,4 +89,17 @@ public class ImageLoader {
                 .centerCrop().transform(new GlideRoundTransformUtil(context)).into(imageView);
     }
 
+    public static void displayOverride(Context context,ImageView imageView,String url){
+        if (imageView == null) {
+            throw new IllegalArgumentException("argument error");
+        }
+        Glide.with(context).load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .placeholder(R.drawable.ic_image_loading)
+                .error(R.drawable.ic_empty_picture)
+                .override(1080,1080*3/4)
+                .crossFade().into(imageView);
+    }
+
 }

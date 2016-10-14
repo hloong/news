@@ -6,7 +6,7 @@ import com.hloong.news.app.App;
 import com.hloong.news.app.AppConstant;
 import com.hloong.news.bean.NewsChannelTable;
 import com.hloong.news.db.NewsChannelTableManager;
-import com.hloong.news.ui.main.contract.NewsContract;
+import com.hloong.news.ui.main.contract.NewsMainContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import rx.Subscriber;
  * Created by xsf
  * on 2016.09.17:05
  */
-public class NewsModel implements NewsContract.Model {
+public class NewsMainModel implements NewsMainContract.Model {
     @Override
     public Observable<List<NewsChannelTable>> NewsChannels() {
         return Observable.create(new Observable.OnSubscribe<List<NewsChannelTable>>(){
