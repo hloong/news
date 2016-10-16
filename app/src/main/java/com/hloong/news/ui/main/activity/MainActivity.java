@@ -19,6 +19,7 @@ import com.hloong.news.app.AppConstant;
 import com.hloong.news.bean.TabEntity;
 import com.hloong.news.ui.main.fragment.NewsMainFragment;
 import com.hloong.news.ui.main.fragment.PhotoMainFragment;
+import com.hloong.news.ui.main.fragment.VideoMainFragment;
 
 import java.util.ArrayList;
 
@@ -30,15 +31,16 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.tab_layout)
     CommonTabLayout tabLayout;
 
-    private String[] mTitles = {"首页", "美女"};
+    private String[] mTitles = {"首页", "视频","美女"};
     private int[] mIconUnselectIds = {
-            R.drawable.ic_home_normal,R.drawable.ic_home_normal};
+            R.drawable.ic_home_normal,R.drawable.ic_video_normal,R.drawable.ic_girl_normal};
     private int[] mIconSelectIds = {
-            R.drawable.ic_home_selected,R.drawable.ic_home_selected};
+            R.drawable.ic_home_selected,R.drawable.ic_video_selected,R.drawable.ic_video_selected};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
     private NewsMainFragment newsMainFragment;
     private PhotoMainFragment photoMainFragment;
+    private VideoMainFragment videoMainFragment;
     private static int tabLayoutHeight;
 
     @Override
@@ -64,15 +66,18 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         int currentTabPosition = 0;
         if (savedInstanceState != null){
-            newsMainFragment = (NewsMainFragment) getSupportFragmentManager().findFragmentByTag("newsFragment");
-            photoMainFragment = (PhotoMainFragment) getSupportFragmentManager().findFragmentByTag("photosFragment");
+            newsMainFragment = (NewsMainFragment) getSupportFragmentManager().findFragmentByTag("newsMainFragment");
+            photoMainFragment = (PhotoMainFragment) getSupportFragmentManager().findFragmentByTag("photoMainFragment");
+            videoMainFragment = (VideoMainFragment) getSupportFragmentManager().findFragmentByTag("videoMainFragment");
             currentTabPosition = savedInstanceState.getInt(AppConstant.HOME_CURRENT_TAB_POSITION);
         }else {
             newsMainFragment = new NewsMainFragment();
             photoMainFragment = new PhotoMainFragment();
+            videoMainFragment = new VideoMainFragment();
 
-            transaction.add(R.id.fl_body, newsMainFragment,"newsFragment");
-            transaction.add(R.id.fl_body, photoMainFragment,"photosFragment");
+            transaction.add(R.id.fl_body, newsMainFragment,"newsMainFragment");
+            transaction.add(R.id.fl_body, photoMainFragment,"photoMainFragment");
+            transaction.add(R.id.fl_body,videoMainFragment,"videoMainFragment");
         }
         transaction.commit();
         SwitchTo(currentTabPosition);
@@ -117,14 +122,24 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position){
             case 0:
-                transaction.hide(photoMainFragment);
                 transaction.show(newsMainFragment);
+                transaction.hide(photoMainFragment);
+                transaction.hide(videoMainFragment);
                 transaction.commitAllowingStateLoss();
                 break;
             case 1:
-                transaction.show(photoMainFragment);
+                transaction.show(videoMainFragment);
+                transaction.hide(photoMainFragment);
                 transaction.hide(newsMainFragment);
                 transaction.commitAllowingStateLoss();
+                break;
+            case 2:
+                transaction.show(photoMainFragment);
+                transaction.hide(videoMainFragment);
+                transaction.hide(newsMainFragment);
+                transaction.commitAllowingStateLoss();
+                break;
+            default:
                 break;
         }
     }

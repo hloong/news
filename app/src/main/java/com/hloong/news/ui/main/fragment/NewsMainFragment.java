@@ -18,6 +18,7 @@ import com.hloong.news.bean.NewsChannelTable;
 import com.hloong.news.ui.main.contract.NewsMainContract;
 import com.hloong.news.ui.main.model.NewsMainModel;
 import com.hloong.news.ui.main.presenter.NewsMainPresenter;
+import com.hloong.news.ui.news.fragment.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
 
     @Override
     protected int getLayoutResource() {
-        return R.layout.fragment_news;
+        return R.layout.fragment_news_main;
     }
 
     @Override
@@ -67,7 +68,7 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
                 channelNames.add(newsChannels.get(i).getNewsChannelName());
                 mNewsFragmentList.add(createListFragments(newsChannels.get(i)));
             }
-            fragmentAdapter = new BaseFragmentAdapter(getChildFragmentManager(),mNewsFragmentList);
+            fragmentAdapter = new BaseFragmentAdapter(getChildFragmentManager(),mNewsFragmentList,channelNames);
             viewPager.setAdapter(fragmentAdapter);
             tabs.setupWithViewPager(viewPager);
             TabLayoutUtil.dynamicSetTabLayoutMode(tabs);
@@ -97,8 +98,8 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
         });
     }
 
-    private NewsMainFragment createListFragments(NewsChannelTable newsChannelTable) {
-        NewsMainFragment fragment = new NewsMainFragment();
+    private NewsFragment createListFragments(NewsChannelTable newsChannelTable) {
+        NewsFragment fragment = new NewsFragment();
         Bundle bundle = new Bundle();
         bundle.putString(AppConstant.NEWS_ID,newsChannelTable.getNewsChannelId());
         bundle.putString(AppConstant.NEWS_TYPE,newsChannelTable.getNewsChannelType());

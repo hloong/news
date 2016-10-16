@@ -823,7 +823,7 @@ public class TimeUtil {
             Log.e("JPush","date.getTime()="+sendDate.getTime());
             if (times > 0) {
                 ret = ((int) (times / ONE_HOUR_MILLISECONDS));
-                int sdqf =(int) Math.floor(times /ONE_HOUR_MILLISECONDS);
+                int sdqf =(int)Math.floor(times /ONE_HOUR_MILLISECONDS);
             } else {
                 ret = -1;
             }
@@ -1017,7 +1017,7 @@ public class TimeUtil {
      * 返回聊天时间
      * @return
      */
-    public static String getChatTimeForShow(long time){
+    public static  String getChatTimeForShow(long time){
         if(TimeUtil.isToday(time)){
             return TimeUtil.getStringByFormat(time, TimeUtil.dateFormatHMofChinese);
         }else{
@@ -1028,7 +1028,7 @@ public class TimeUtil {
     /**
      * 获取指定时间的毫秒值
      */
-    public static long getDatelongMills(String fomat, String dateStr){
+    public static long getDatelongMills(String fomat,String dateStr){
         SimpleDateFormat sdf = new SimpleDateFormat(fomat);
         Date date = null;
         try {

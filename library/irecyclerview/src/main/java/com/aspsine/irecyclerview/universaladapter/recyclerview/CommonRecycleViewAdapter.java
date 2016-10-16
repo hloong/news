@@ -22,11 +22,10 @@ import java.util.List;
 /**
  * Created by zhy on 16/4/9.
  */
-public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<ViewHolderHelper> implements DataIO<T>
-{
+public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<ViewHolderHelper> implements DataIO<T> {
     protected Context mContext;
     protected int mLayoutId;
-    protected List<T> mDatas=new ArrayList<>();
+    protected List<T> mDatas = new ArrayList<>();
     protected LayoutInflater mInflater;
 
     private OnItemClickListener mOnItemClickListener;
@@ -40,56 +39,47 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
     private PageBean pageBean;
     private BaseAnimation mSelectAnimation = new AlphaInAnimation();
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener)
-    {
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
     }
 
-    public CommonRecycleViewAdapter(Context context, int layoutId, List<T> mDatass)
-    {
+    public CommonRecycleViewAdapter(Context context, int layoutId, List<T> mDatass) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mLayoutId = layoutId;
         mDatas = mDatass;
-        pageBean=new PageBean();
+        pageBean = new PageBean();
     }
-    public CommonRecycleViewAdapter(Context context, int layoutId)
-    {
+
+    public CommonRecycleViewAdapter(Context context, int layoutId) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mLayoutId = layoutId;
-        pageBean=new PageBean();
+        pageBean = new PageBean();
     }
 
     @Override
-    public ViewHolderHelper onCreateViewHolder(final ViewGroup parent, int viewType)
-    {
+    public ViewHolderHelper onCreateViewHolder(final ViewGroup parent, int viewType) {
         ViewHolderHelper viewHolder = ViewHolderHelper.get(mContext, null, parent, mLayoutId, -1);
         setListener(parent, viewHolder, viewType);
         return viewHolder;
     }
 
-    protected int getPosition(RecyclerView.ViewHolder viewHolder)
-    {
+    protected int getPosition(RecyclerView.ViewHolder viewHolder) {
         return viewHolder.getAdapterPosition();
     }
 
-    protected boolean isEnabled(int viewType)
-    {
+    protected boolean isEnabled(int viewType) {
         return true;
     }
 
 
-    protected void setListener(final ViewGroup parent, final ViewHolderHelper viewHolder, int viewType)
-    {
+    protected void setListener(final ViewGroup parent, final ViewHolderHelper viewHolder, int viewType) {
         if (!isEnabled(viewType)) return;
-        viewHolder.getConvertView().setOnClickListener(new View.OnClickListener()
-        {
+        viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if (mOnItemClickListener != null)
-                {
+            public void onClick(View v) {
+                if (mOnItemClickListener != null) {
                     int position = getPosition(viewHolder);
                     mOnItemClickListener.onItemClick(parent, v, mDatas.get(position), position);
                 }
@@ -97,13 +87,10 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
         });
 
 
-        viewHolder.getConvertView().setOnLongClickListener(new View.OnLongClickListener()
-        {
+        viewHolder.getConvertView().setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v)
-            {
-                if (mOnItemClickListener != null)
-                {
+            public boolean onLongClick(View v) {
+                if (mOnItemClickListener != null) {
                     int position = getPosition(viewHolder);
                     return mOnItemClickListener.onItemLongClick(parent, v, mDatas.get(position), position);
                 }
@@ -113,8 +100,7 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderHelper holder, int position)
-    {
+    public void onBindViewHolder(ViewHolderHelper holder, int position) {
         holder.updatePosition(position);
         //添加动画
         addAnimation(holder);
@@ -122,7 +108,6 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
     }
 
     public abstract void convert(ViewHolderHelper helper, T t);
-
 
 
     /**
@@ -139,7 +124,7 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
                 }
                 for (Animator anim : animation.getAnimators(holder.itemView)) {
                     startAnim(anim, holder.getLayoutPosition());
-                    Log.d("animline",mLastPosition+"");
+                    Log.d("animline", mLastPosition + "");
                 }
                 mLastPosition = holder.getLayoutPosition();
             }
@@ -176,8 +161,7 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
 
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return mDatas.size();
     }
 
@@ -272,8 +256,10 @@ public abstract class CommonRecycleViewAdapter<T> extends RecyclerView.Adapter<V
     public boolean contains(T elem) {
         return mDatas.contains(elem);
     }
+
     /**
      * 分页
+     *
      * @return
      */
     public PageBean getPageBean() {
