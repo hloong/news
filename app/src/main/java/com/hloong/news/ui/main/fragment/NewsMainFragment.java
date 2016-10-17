@@ -18,12 +18,14 @@ import com.hloong.news.bean.NewsChannelTable;
 import com.hloong.news.ui.main.contract.NewsMainContract;
 import com.hloong.news.ui.main.model.NewsMainModel;
 import com.hloong.news.ui.main.presenter.NewsMainPresenter;
+import com.hloong.news.ui.news.activity.NewsChannelActivity;
 import com.hloong.news.ui.news.fragment.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainModel> implements NewsMainContract.View {
 
@@ -54,6 +56,11 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
         });
     }
 
+    @OnClick(R.id.add_channel_iv)
+    public void clickAdd(){
+            NewsChannelActivity.startAction(getContext());
+    }
+
     @Override
     protected int getLayoutResource() {
         return R.layout.fragment_news_main;
@@ -74,9 +81,6 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
             TabLayoutUtil.dynamicSetTabLayoutMode(tabs);
             setPageChangeListener();
         }
-
-
-
     }
 
     private void setPageChangeListener() {

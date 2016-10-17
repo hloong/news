@@ -24,7 +24,10 @@
         </activity>
         <activity android:name=".ui.main.activity.MainActivity" />
         <activity android:name=".ui.news.activity.NewsDetailActivity" />
-        <activity android:name=".ui.news.activity.NewsPhotoDetailActivity"></activity>
+        <activity android:name=".ui.news.activity.NewsPhotoDetailActivity" />
+        <activity android:name=".ui.news.activity.NewsChannelActivity" />
+        <activity android:name=".ui.zone.activity.CircleZoneActivity" />
+        <activity android:name=".ui.zone.activity.CirclePublishActivity"></activity>
     </application>
 
 </manifest>

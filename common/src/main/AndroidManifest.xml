@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hloong.base">
 
-    <application
-        android:supportsRtl="true">
+    <application android:supportsRtl="true">
+
         <!-- 您从百度网站获取的APP KEY -->
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
@@ -13,7 +13,7 @@
             android:name="BaiduMobAd_CHANNEL"
             android:value="Baidu Market" />
 
-
+        <activity android:name=".imagepager.BigImagePagerActivity"></activity>
     </application>
 
 </manifest>

@@ -145,7 +145,7 @@ public class VideosFragment extends BaseFragment<VideosListPresenter,VideosListM
 
     @Override
     public void showLoading(String title) {
-        if( videoListAdapter.getPageBean().isRefresh()) {
+        if( !videoListAdapter.getPageBean().isRefresh()) {
             loadedTip.setLoadingTip(LoadingTip.LoadStatus.loading);
         }
     }
