@@ -6,13 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.MenuItem;
@@ -65,7 +65,27 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailPresenter,NewsDet
     private String mNewsTitle;
     private String mShareLink;
 
+    /** 入口
+     * @param mContext
+     * @param postId
+     */
+    public static void startAction(Context mContext, View view, String postId, String imgUrl) {
+        Intent intent = new Intent(mContext, NewsDetailActivity.class);
+        intent.putExtra(AppConstant.NEWS_POST_ID, postId);
+        intent.putExtra(AppConstant.NEWS_IMG_RES, imgUrl);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions
+                    .makeSceneTransitionAnimation((Activity) mContext,view, AppConstant.TRANSITION_ANIMATION_NEWS_PHOTOS);
+            mContext.startActivity(intent, options.toBundle());
+        } else {
 
+            //让新的Activity从一个小的范围扩大到全屏
+            ActivityOptionsCompat options = ActivityOptionsCompat
+                    .makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
+            ActivityCompat.startActivity((Activity) mContext, intent, options.toBundle());
+        }
+
+    }
     @Override
     public int getLayoutId() {
         return R.layout.activity_news_detail;
@@ -204,27 +224,7 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailPresenter,NewsDet
     private boolean canBrowse(Intent intent) {
         return intent.resolveActivity(getPackageManager()) != null && mShareLink != null;
     }
-    /** 入口
-    * @param mContext
-    * @param postId
-    */
-    public static void startAction(Context mContext, View view, String postId, String imgUrl) {
-        Intent intent = new Intent(mContext, NewsDetailActivity.class);
-        intent.putExtra(AppConstant.NEWS_POST_ID, postId);
-        intent.putExtra(AppConstant.NEWS_IMG_RES, imgUrl);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions
-                    .makeSceneTransitionAnimation((Activity) mContext,view, AppConstant.TRANSITION_ANIMATION_NEWS_PHOTOS);
-            mContext.startActivity(intent, options.toBundle());
-        } else {
 
-            //让新的Activity从一个小的范围扩大到全屏
-            ActivityOptionsCompat options = ActivityOptionsCompat
-                    .makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
-            ActivityCompat.startActivity((Activity) mContext, intent, options.toBundle());
-        }
-
-    }
     @Override
     public void showLoading(String title) {
 

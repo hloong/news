@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/selector_orange_maincolor"
+        android:background="@drawable/selector_blue_maincolor"
         android:gravity="center"
         android:padding="13dp"
         android:text="提交"

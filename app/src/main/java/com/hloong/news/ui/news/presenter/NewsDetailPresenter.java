@@ -1,6 +1,8 @@
 package com.hloong.news.ui.news.presenter;
 
 import com.hloong.base.rx.RxSubscriber;
+import com.hloong.base.utils.ToastUitl;
+import com.hloong.news.R;
 import com.hloong.news.bean.NewsDetail;
 import com.hloong.news.ui.news.contract.NewsDetailContract;
 
@@ -19,7 +21,7 @@ public class NewsDetailPresenter extends NewsDetailContract.Presenter{
 
             @Override
             protected void _onError(String message) {
-
+                ToastUitl.showToastWithImg(message, R.drawable.ic_wrong);
             }
         }));
     }

@@ -1,7 +1,6 @@
 package com.hloong.news.ui.news.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,8 +85,7 @@ public class NewsListAdapter extends MultiItemRecycleViewAdapter<NewsSummary> {
         holder.setOnClickListener(R.id.rl_root, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NewsDetailActivity.startAction(mContext, holder.getView(R.id.news_summary_photo_iv), newsSummary.getPostid(), newsSummary.getImgsrc());
-                mContext.startActivity(new Intent(mContext, NewsDetailActivity.class));
+                NewsDetailActivity.startAction(mContext, holder.getView(R.id.news_summary_photo_iv), newsSummary.getPostid(), newsSummary.getImgsrc());
             }
         });
     }
