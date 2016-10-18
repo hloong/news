@@ -1,7 +1,7 @@
 package com.hloong.news.ui.zone.widget;
 
 
-import com.jaydenxiao.androidfire.R;
+import com.hloong.news.R;
 
 /**
  * des:点赞效果接口

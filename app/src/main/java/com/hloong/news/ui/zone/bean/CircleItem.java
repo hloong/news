@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-import com.jaydenxiao.androidfire.ui.zone.widget.ImageUtil;
-import com.jaydenxiao.common.baseapp.AppCache;
+import com.hloong.news.app.AppCache;
+import com.hloong.news.ui.zone.widget.ImageUtil;
 
 import java.util.ArrayList;
 import java.util.List;

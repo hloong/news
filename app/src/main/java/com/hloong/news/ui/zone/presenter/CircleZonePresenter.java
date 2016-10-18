@@ -3,7 +3,6 @@ package com.hloong.news.ui.zone.presenter;
 import android.view.View;
 
 import com.aspsine.irecyclerview.bean.PageBean;
-import com.hloong.base.utils.JsonUtils;
 import com.hloong.base.utils.LogUtil;
 import com.hloong.base.utils.ToastUitl;
 import com.hloong.news.R;
@@ -98,11 +97,12 @@ public class CircleZonePresenter extends CircleZoneContract.Presenter {
             public void onNext(Result result) {
                 if (result != null) {
                     try {
-                        List<CircleItem> circleItems = (List<CircleItem>) JsonUtils.fromJson(JsonUtils.getValue(result.getMsg(), "list"),CircleItem.class);
+                        List<CircleItem> circleItems = result.getMsg().getList();
+
                         for (int i = 0; i < circleItems.size(); i++) {
                             circleItems.get(i).setPictures(DatasUtil.getRandomPhotoUrlString(new Random().nextInt(9)));
                         }
-                        PageBean pageBean = (PageBean) JsonUtils.fromJson(JsonUtils.getValue(result.getMsg(), "page"), PageBean.class);
+                        PageBean pageBean = result.getMsg().getPage();
                         mView.setListData(circleItems, pageBean);
                     } catch (Exception e) {
                         e.printStackTrace();

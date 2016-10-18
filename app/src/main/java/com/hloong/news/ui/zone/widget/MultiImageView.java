@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 
-import com.jaydenxiao.androidfire.R;
-import com.jaydenxiao.common.commonutils.DisplayUtil;
-import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
+import com.hloong.base.image.ImageLoader;
+import com.hloong.base.utils.DisplayUtil;
+import com.hloong.news.R;
 
 import java.util.List;
 
@@ -185,7 +185,7 @@ public class MultiImageView extends LinearLayout {
 		imageView.setTag(R.string.zone_img_position,position);
 		imageView.setId(url.hashCode());
 		imageView.setOnClickListener(mImageViewOnClickListener);
-		ImageLoaderUtils.display(getContext(), imageView, ImageUtil.getImageUrl(url));
+		ImageLoader.display(getContext(), imageView, ImageUtil.getImageUrl(url));
 		return imageView;
 	}
 

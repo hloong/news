@@ -7,6 +7,9 @@ import com.hloong.news.bean.NewsDetail;
 import com.hloong.news.bean.NewsSummary;
 import com.hloong.news.bean.User;
 import com.hloong.news.bean.VideoData;
+import com.hloong.news.bean.ZhihuBeforeNews;
+import com.hloong.news.bean.ZhihuLastsNews;
+import com.hloong.news.bean.ZhihuNewsDetail;
 
 import java.util.List;
 import java.util.Map;
@@ -58,4 +61,19 @@ public interface ApiService {
             @Header("Cache-Control") String cacheControl,
             @Path("type") String type,
             @Path("startPage") int startPage);
+
+
+    /*知乎日报*/
+    //http://news-at.zhihu.com/api/4/news/latest
+    @GET("api/4/news/latest")
+    Observable<ZhihuLastsNews> getLatestNews();
+
+    //http://news.at.zhihu.com/api/4/news/before/20160831
+    //返回的是20160830的头条。url需延后一天。
+    @GET("api/4/news/before/{date}")
+    Observable<ZhihuBeforeNews> getBeforeNews(@Path("date") String date);
+
+    //http://news-at.zhihu.com/api/4/news/8725424
+    @GET("api/4/news/{id}")
+    Observable<ZhihuNewsDetail> getNewsDetail(@Path("id") int id);
 }

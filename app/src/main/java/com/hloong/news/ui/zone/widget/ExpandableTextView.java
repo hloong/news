@@ -36,8 +36,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.jaydenxiao.androidfire.R;
-import com.jaydenxiao.common.commonutils.DisplayUtil;
+import com.hloong.base.utils.DisplayUtil;
+import com.hloong.news.R;
+
 
 public class ExpandableTextView extends LinearLayout implements View.OnClickListener {
 

@@ -10,10 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jaydenxiao.androidfire.R;
-import com.jaydenxiao.androidfire.ui.zone.DatasUtil;
-import com.jaydenxiao.common.commonutils.FormatUtil;
-import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
+import com.hloong.base.image.ImageLoader;
+import com.hloong.base.utils.FormatUtil;
+import com.hloong.news.R;
+import com.hloong.news.ui.zone.DatasUtil;
+
 
 /**
  * des:圈子消息头
@@ -67,7 +68,7 @@ public class ZoneHeaderView extends LinearLayout {
      */
     public void setData(String name, String avater){
         tv_name.setText(FormatUtil.checkValue(name));
-        ImageLoaderUtils.displayRound(getContext(),img_avater, DatasUtil.getRandomPhotoUrl());
+        ImageLoader.displayRound(getContext(),img_avater, DatasUtil.getRandomPhotoUrl());
     }
     /**
      * 设置未读消息值
@@ -75,7 +76,7 @@ public class ZoneHeaderView extends LinearLayout {
     public void setNotReadMsgData(int num,String avater){
         if(num>0){
             ll_not_read_news_root.setVisibility(View.VISIBLE);
-            ImageLoaderUtils.displayRound(getContext(),img_newest_avater, DatasUtil.getRandomPhotoUrl());
+            ImageLoader.displayRound(getContext(),img_newest_avater, DatasUtil.getRandomPhotoUrl());
             tv_not_read_new.setText(String.format(getResources().getString(R.string.circle_zone_not_read_news), String.valueOf(num)));
         }else{
             ll_not_read_news_root.setVisibility(View.GONE);

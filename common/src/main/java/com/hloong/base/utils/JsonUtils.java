@@ -2,8 +2,10 @@ package com.hloong.base.utils;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonSyntaxException;
+import com.hloong.base.utils.gson.NullStringToEmptyAdapterFactory;
 
 import org.json.JSONObject;
 
@@ -16,7 +18,10 @@ import java.lang.reflect.Type;
 public class JsonUtils {
 
     // 采取单例模式
-    private static Gson gson = new Gson();
+    private static Gson gson;
+    static {
+        gson = new GsonBuilder().registerTypeAdapterFactory(new NullStringToEmptyAdapterFactory()).create();
+    }
 
     private JsonUtils() {
     }
