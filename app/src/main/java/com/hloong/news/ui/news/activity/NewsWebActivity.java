@@ -46,12 +46,15 @@ public class NewsWebActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         setWebViewSettings();
         setWebView();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        toolbar.setTitle(getIntent().getStringExtra(AppConstant.NEWS_TITLE));
     }
 
-    private void initWebView() {
-        setWebViewSettings();
-        setWebView();
-    }
     private void setWebViewSettings() {
         WebSettings webSettings = webView.getSettings();
         // 打开页面时， 自适应屏幕
@@ -91,7 +94,9 @@ public class NewsWebActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        webView.removeAllViews();
-        webView.destroy();
+        if (webView != null) {
+            webView.removeAllViews();
+            webView.destroy();
+        }
     }
 }

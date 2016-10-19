@@ -9,11 +9,10 @@
     <ImageView
         android:id="@+id/iv_photo"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:transitionName="@string/transition_photos"
-        tools:src="@drawable/android_logo"
         tools:targetApi="lollipop"/>
 
 </FrameLayout>

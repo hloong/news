@@ -52,7 +52,7 @@ public class PhotoMainFragment extends BaseFragment<PhotoListPresenter,PhotoList
     @Override
     protected void initView() {
         ntb.setTvLeftVisiable(false);
-        ntb.setTitleText("美女图");
+        ntb.setTitleText("美图");
         adapter = new CommonRecycleViewAdapter<PhotoGirl>(getContext(),R.layout.item_photo) {
             @Override
             public void convert(ViewHolderHelper helper, final PhotoGirl photoGirl) {
@@ -67,7 +67,7 @@ public class PhotoMainFragment extends BaseFragment<PhotoListPresenter,PhotoList
             }
         };
         irc.setAdapter(adapter);
-        irc.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
+        irc.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
         irc.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(View loadMoreView) {

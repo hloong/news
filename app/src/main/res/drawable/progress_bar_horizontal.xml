@@ -3,7 +3,7 @@
 
     <item
         android:id="@android:id/background"
-        android:color="@color/progress_bar_unfinished"/>
+        android:drawable="@color/progress_bar_unfinished"/>
 
     <item android:id="@android:id/progress">
         <clip>
