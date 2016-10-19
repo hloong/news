@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,6 +29,7 @@ import com.hloong.base.base.BaseActivity;
 import com.hloong.base.utils.DisplayUtil;
 import com.hloong.base.utils.KeyBordUtil;
 import com.hloong.base.utils.LogUtil;
+import com.hloong.base.utils.ToastUitl;
 import com.hloong.base.widget.LoadingTip;
 import com.hloong.base.widget.NormalTitleBar;
 import com.hloong.news.R;
@@ -46,6 +48,8 @@ import com.hloong.news.ui.zone.widget.ZoneHeaderView;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class CircleZoneActivity extends BaseActivity<CircleZonePresenter,ZoneModel> implements CircleZoneContract.View {
     @Bind(R.id.ntb)
@@ -110,6 +114,7 @@ public class CircleZoneActivity extends BaseActivity<CircleZonePresenter,ZoneMod
         menuRed.setClosedOnTouchOutside(true);
         //点赞效果初始化
         ntb.setTitleText(getString(R.string.circle_zone));
+        LogUtil.d("initViews");
         //滑动列表关闭输入框
         irc.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -234,6 +239,59 @@ public class CircleZoneActivity extends BaseActivity<CircleZonePresenter,ZoneMod
             result = getResources().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+    /**
+     * 点击事件
+     *
+     * @param view
+     */
+    @OnClick({R.id.tv_back, R.id.tv_right, R.id.sendIv, R.id.menu_red, R.id.fab1, R.id.fab2, R.id.fab3, R.id.fab4, R.id.fab5})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_back:
+                finish();
+                break;
+            case R.id.tv_right:
+                break;
+            //评论
+            case R.id.sendIv:
+                if (mPresenter != null) {
+                    //发布评论
+                    String content = circleEt.getText().toString().trim();
+                    if (TextUtils.isEmpty(content)) {
+                        ToastUitl.showToastWithImg("评论内容不能为空", R.drawable.ic_warm);
+                        return;
+                    }
+                    mPresenter.addComment(content, mCommentConfig);
+                }
+                updateEditTextBodyVisible(View.GONE, null);
+                break;
+            case R.id.menu_red:
+                break;
+            case R.id.fab1:
+                menuRed.close(true);
+            case R.id.fab2:
+                menuRed.close(true);
+            case R.id.fab3:
+                menuRed.close(true);
+            case R.id.fab4:
+                menuRed.close(true);
+            case R.id.fab5:
+                menuRed.close(true);
+                CirclePublishActivity.startAction(this);
+                break;
+        }
+    }
+
+    @OnLongClick({R.id.image_right})
+    public boolean onLongClick(View view) {
+        switch (view.getId()) {
+            case R.id.image_right:
+                //发文字朋友圈
+                //CirclePublishActivity.startAction(this, false);
+                break;
+        }
+        return false;
     }
 
 

@@ -192,7 +192,7 @@
                 android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="1dp"
-                android:background="@drawable/selector_gray_border"
+                android:background="@color/gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:visibility="visible">
