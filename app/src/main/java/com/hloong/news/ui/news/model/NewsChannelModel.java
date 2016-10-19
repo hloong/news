@@ -48,12 +48,13 @@ public class NewsChannelModel implements NewsChannelContract.Model {
                 if (newsChannelTables == null){
                     List<String> channelName = Arrays.asList(App.getAppResources().getStringArray(R.array.news_channel_name));
                     List<String> channelId = Arrays.asList(App.getAppResources().getStringArray(R.array.news_channel_id));
-                    newsChannelTables = new ArrayList<NewsChannelTable>();
+                    newsChannelTables = new ArrayList<>();
                     for (int i = 0; i < channelName.size(); i++) {
                         NewsChannelTable entity = new NewsChannelTable(channelName.get(i),channelId.get(i)
                         , ApiConstants.getType(channelId.get(i)),i<=5,i,false);
                         newsChannelTables.add(entity);
                     }
+
                 }
                 subscriber.onNext(newsChannelTables);
                 subscriber.onCompleted();

@@ -27,7 +27,9 @@
         <activity android:name=".ui.news.activity.NewsPhotoDetailActivity" />
         <activity android:name=".ui.news.activity.NewsChannelActivity" />
         <activity android:name=".ui.zone.activity.CircleZoneActivity" />
-        <activity android:name=".ui.zone.activity.CirclePublishActivity"></activity>
+        <activity android:name=".ui.zone.activity.CirclePublishActivity" />
+        <activity android:name=".ui.news.activity.NewsWebActivity" />
+        <activity android:name=".ui.news.activity.PhotoDetailActivity"></activity>
     </application>
 
 </manifest>

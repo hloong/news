@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.OnClick;
 
 public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainModel> implements NewsMainContract.View {
 
@@ -54,11 +53,12 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
                 mRxManager.post(AppConstant.NEWS_LIST_TO_TOP,"");
             }
         });
-    }
-
-    @OnClick(R.id.add_channel_iv)
-    public void clickAdd(){
-            NewsChannelActivity.startAction(getContext());
+        addChannelIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NewsChannelActivity.startAction(getContext());
+            }
+        });
     }
 
     @Override

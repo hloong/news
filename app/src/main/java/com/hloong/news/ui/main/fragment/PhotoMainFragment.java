@@ -19,6 +19,7 @@ import com.hloong.base.widget.NormalTitleBar;
 import com.hloong.news.R;
 import com.hloong.news.bean.PhotoGirl;
 import com.hloong.news.ui.main.contract.PhotoListContract;
+import com.hloong.news.ui.news.activity.PhotoDetailActivity;
 import com.hloong.news.ui.news.model.PhotoListModel;
 import com.hloong.news.ui.news.presenter.PhotoListPresenter;
 
@@ -54,19 +55,19 @@ public class PhotoMainFragment extends BaseFragment<PhotoListPresenter,PhotoList
         ntb.setTitleText("美女图");
         adapter = new CommonRecycleViewAdapter<PhotoGirl>(getContext(),R.layout.item_photo) {
             @Override
-            public void convert(ViewHolderHelper helper, PhotoGirl photoGirl) {
+            public void convert(ViewHolderHelper helper, final PhotoGirl photoGirl) {
                 ImageView imageView = helper.getView(R.id.iv_photo);
                 ImageLoader.displayOverride(getContext(),imageView,photoGirl.getUrl());
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        PhotoDetailActivity.startAction(mContext,photoGirl.getUrl());
                     }
                 });
             }
         };
         irc.setAdapter(adapter);
-        irc.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
+        irc.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
         irc.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(View loadMoreView) {

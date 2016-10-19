@@ -1,6 +1,7 @@
 package com.hloong.news.ui.news.presenter;
 
 import com.hloong.base.rx.RxSubscriber;
+import com.hloong.base.utils.LogUtil;
 import com.hloong.news.app.AppConstant;
 import com.hloong.news.bean.NewsChannelTable;
 import com.hloong.news.ui.news.contract.NewsChannelContract;
@@ -16,6 +17,7 @@ public class NewsChannelPresenter extends NewsChannelContract.Presenter {
 
     @Override
     public void loadChannelRequest() {
+        LogUtil.d("loadChannelRequest");
         mRxManage.add(mModel.loadNewsChannels().subscribe(new RxSubscriber<List<NewsChannelTable>>(mContext,false) {
             @Override
             protected void _onNext(List<NewsChannelTable> newsChannelTables) {

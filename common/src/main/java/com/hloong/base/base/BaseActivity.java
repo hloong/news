@@ -26,6 +26,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         super.onCreate(savedInstanceState);
         mRxManager=new RxManager();
         doBeforeView();
+        setContentViewBefore();
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         mContext = this;
@@ -36,6 +37,9 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         }
         this.initViews(savedInstanceState);
         this.initPresenter();
+    }
+
+    public void setContentViewBefore() {
     }
 
     private void doBeforeView() {

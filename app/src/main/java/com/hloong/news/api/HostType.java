@@ -37,5 +37,9 @@ public class HostType {
      * 新闻详情html图片的host
      */
     public static final int NEWS_DETAIL_HTML_PHOTO = 3;
+    /**
+     * 知乎日报
+     */
+    public static final int ZHIHU_DAILY = 4;
 
 }

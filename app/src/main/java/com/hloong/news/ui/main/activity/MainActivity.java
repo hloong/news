@@ -34,9 +34,15 @@ public class MainActivity extends BaseActivity {
 
     private String[] mTitles = {"首页", "视频","美女","更多"};
     private int[] mIconUnselectIds = {
-            R.drawable.ic_home_normal,R.drawable.ic_video_normal,R.drawable.ic_girl_normal,R.drawable.ic_more_normal};
+            R.drawable.ic_home_normal,
+            R.drawable.ic_video_normal,
+            R.drawable.ic_girl_normal,
+            R.drawable.ic_more_normal};
     private int[] mIconSelectIds = {
-            R.drawable.ic_home_selected,R.drawable.ic_video_selected,R.drawable.ic_video_selected,R.drawable.ic_more_selected};
+            R.drawable.ic_home_selected,
+            R.drawable.ic_video_selected,
+            R.drawable.ic_girl_selected,
+            R.drawable.ic_more_selected};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
     private NewsMainFragment newsMainFragment;
@@ -44,7 +50,6 @@ public class MainActivity extends BaseActivity {
     private VideoMainFragment videoMainFragment;
     private MoreMainFragment moreMainFragment;
     private static int tabLayoutHeight;
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -72,6 +77,7 @@ public class MainActivity extends BaseActivity {
                 startAnimation(hideOrShow);
             }
         });
+
     }
 
     private void initFragment(Bundle savedInstanceState) {
@@ -136,31 +142,32 @@ public class MainActivity extends BaseActivity {
         LogUtil.d("主页菜单postion "+position);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position){
-            case 0:
+            case 0://首页
+                transaction.hide(photoMainFragment);
+                transaction.hide(videoMainFragment);
+                transaction.hide(moreMainFragment);
                 transaction.show(newsMainFragment);
-                transaction.hide(photoMainFragment);
-                transaction.hide(videoMainFragment);
-                transaction.hide(moreMainFragment);
                 transaction.commitAllowingStateLoss();
                 break;
-            case 1:
+            case 1://视频
+                transaction.hide(photoMainFragment);
+                transaction.hide(newsMainFragment);
+                transaction.hide(moreMainFragment);
                 transaction.show(videoMainFragment);
-                transaction.hide(photoMainFragment);
-                transaction.hide(newsMainFragment);
-                transaction.hide(moreMainFragment);
                 transaction.commitAllowingStateLoss();
                 break;
-            case 2:
-                transaction.show(photoMainFragment);
+            case 2://图片
                 transaction.hide(videoMainFragment);
                 transaction.hide(newsMainFragment);
                 transaction.hide(moreMainFragment);
+                transaction.show(photoMainFragment);
                 transaction.commitAllowingStateLoss();
-            case 3:
-                transaction.show(moreMainFragment);
+                break;
+            case 3://更多
                 transaction.hide(videoMainFragment);
                 transaction.hide(newsMainFragment);
                 transaction.hide(photoMainFragment);
+                transaction.show(moreMainFragment);
                 transaction.commitAllowingStateLoss();
                 break;
             default:

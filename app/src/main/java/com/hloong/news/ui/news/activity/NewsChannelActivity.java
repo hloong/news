@@ -53,23 +53,22 @@ public class NewsChannelActivity extends BaseActivity<NewsChannelPresenter,NewsC
     }
 
     @Override
-    protected void initPresenter() {
-        mPresenter.setVM(this,mModel);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRxManager.on(AppConstant.CHANNEL_SWAP, new Action1<ChannelItemMoveEvent>() {
             @Override
             public void call(ChannelItemMoveEvent channelItemMoveEvent) {
-                if (channelItemMoveEvent != null){
-                    mPresenter.onItemSwap((ArrayList<NewsChannelTable>) channelAdapterMine.getAll(),
-                            channelItemMoveEvent.getFromPosition(),channelItemMoveEvent.getToPosition());
-                }
+                mPresenter.onItemSwap((ArrayList<NewsChannelTable>)channelAdapterMine.getAll(),
+                        channelItemMoveEvent.getFromPosition(),channelItemMoveEvent.getToPosition());
             }
         });
     }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setVM(this,mModel);
+    }
+
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
