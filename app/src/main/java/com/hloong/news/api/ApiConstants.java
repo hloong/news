@@ -4,6 +4,9 @@ public class ApiConstants {
     public static final String NETEAST_HOST = "http://c.m.163.com/";
     public static final String END_URL = "-20.html";
     public static final String ENDDETAIL_URL = "/full.html";
+    //知乎日报
+    public static final String ZHIHU_URL = "http://news-at.zhihu.com/";
+
 
     // 新闻详情
     public static final String NEWS_DETAIL = NETEAST_HOST + "nc/article/";
@@ -97,6 +100,8 @@ public class ApiConstants {
     public static final String VIDEO_FUN_ID = "V9LG4E6VR";
     // 精品视频
     public static final String VIDEO_CHOICE_ID = "00850FRB";
+    // 知乎ID
+    public static final String ZHIHU_ID = "zhihu_id";
 
     /**
      * 天气预报url
@@ -156,6 +161,9 @@ public class ApiConstants {
                 break;
             case HostType.NEWS_DETAIL_HTML_PHOTO:
                 host = "http://kaku.com/";
+                break;
+            case HostType.ZHIHU_DAILY:
+                host = ZHIHU_URL;
                 break;
             default:
                 host = "";

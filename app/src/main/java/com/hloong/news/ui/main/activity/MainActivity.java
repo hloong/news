@@ -21,6 +21,7 @@ import com.hloong.news.ui.main.fragment.MoreMainFragment;
 import com.hloong.news.ui.main.fragment.NewsMainFragment;
 import com.hloong.news.ui.main.fragment.PhotoMainFragment;
 import com.hloong.news.ui.main.fragment.VideoMainFragment;
+import com.hloong.news.ui.main.fragment.ZhihuMainFragment;
 
 import java.util.ArrayList;
 
@@ -32,14 +33,16 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.tab_layout)
     CommonTabLayout tabLayout;
 
-    private String[] mTitles = {"首页", "视频","美女","更多"};
+    private String[] mTitles = {"首页", "日报","视频","美女","更多"};
     private int[] mIconUnselectIds = {
             R.drawable.ic_home_normal,
+            R.drawable.ic_zhihu_normal,
             R.drawable.ic_video_normal,
             R.drawable.ic_girl_normal,
             R.drawable.ic_more_normal};
     private int[] mIconSelectIds = {
             R.drawable.ic_home_selected,
+            R.drawable.ic_zhihu_selected,
             R.drawable.ic_video_selected,
             R.drawable.ic_girl_selected,
             R.drawable.ic_more_selected};
@@ -49,6 +52,7 @@ public class MainActivity extends BaseActivity {
     private PhotoMainFragment photoMainFragment;
     private VideoMainFragment videoMainFragment;
     private MoreMainFragment moreMainFragment;
+    private ZhihuMainFragment zhihuMainFragment;
     private static int tabLayoutHeight;
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -86,17 +90,20 @@ public class MainActivity extends BaseActivity {
         if (savedInstanceState != null){
             newsMainFragment = (NewsMainFragment) getSupportFragmentManager().findFragmentByTag("newsMainFragment");
             photoMainFragment = (PhotoMainFragment) getSupportFragmentManager().findFragmentByTag("photoMainFragment");
+            zhihuMainFragment = (ZhihuMainFragment) getSupportFragmentManager().findFragmentByTag("zhihuMainFragment");
             videoMainFragment = (VideoMainFragment) getSupportFragmentManager().findFragmentByTag("videoMainFragment");
             moreMainFragment = (MoreMainFragment) getSupportFragmentManager().findFragmentByTag("moreMainFragment");
             currentTabPosition = savedInstanceState.getInt(AppConstant.HOME_CURRENT_TAB_POSITION);
         }else {
             newsMainFragment = new NewsMainFragment();
             photoMainFragment = new PhotoMainFragment();
+            zhihuMainFragment = new ZhihuMainFragment();
             videoMainFragment = new VideoMainFragment();
             moreMainFragment = new MoreMainFragment();
 
             transaction.add(R.id.fl_body, newsMainFragment,"newsMainFragment");
             transaction.add(R.id.fl_body, photoMainFragment,"photoMainFragment");
+            transaction.add(R.id.fl_body, zhihuMainFragment,"zhihuMainFragment");
             transaction.add(R.id.fl_body,videoMainFragment,"videoMainFragment");
             transaction.add(R.id.fl_body,moreMainFragment,"moreMainFragment");
         }
@@ -143,32 +150,24 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position){
             case 0://首页
-                transaction.hide(photoMainFragment);
-                transaction.hide(videoMainFragment);
-                transaction.hide(moreMainFragment);
-                transaction.show(newsMainFragment);
-                transaction.commitAllowingStateLoss();
+                transaction.hide(zhihuMainFragment).hide(photoMainFragment).hide(videoMainFragment).hide(moreMainFragment)
+                .show(newsMainFragment).commitAllowingStateLoss();
                 break;
-            case 1://视频
-                transaction.hide(photoMainFragment);
-                transaction.hide(newsMainFragment);
-                transaction.hide(moreMainFragment);
-                transaction.show(videoMainFragment);
-                transaction.commitAllowingStateLoss();
+            case 1://知乎
+                transaction.hide(videoMainFragment).hide(photoMainFragment).hide(newsMainFragment).hide(moreMainFragment)
+                .show(zhihuMainFragment).commitAllowingStateLoss();
                 break;
-            case 2://图片
-                transaction.hide(videoMainFragment);
-                transaction.hide(newsMainFragment);
-                transaction.hide(moreMainFragment);
-                transaction.show(photoMainFragment);
-                transaction.commitAllowingStateLoss();
+            case 2://视频
+                transaction.hide(zhihuMainFragment).hide(photoMainFragment).hide(newsMainFragment).hide(moreMainFragment)
+                .show(videoMainFragment).commitAllowingStateLoss();
                 break;
-            case 3://更多
-                transaction.hide(videoMainFragment);
-                transaction.hide(newsMainFragment);
-                transaction.hide(photoMainFragment);
-                transaction.show(moreMainFragment);
-                transaction.commitAllowingStateLoss();
+            case 3://图片
+                transaction.hide(zhihuMainFragment).hide(videoMainFragment).hide(newsMainFragment).hide(moreMainFragment)
+                .show(photoMainFragment).commitAllowingStateLoss();
+                break;
+            case 4://更多
+                transaction.hide(zhihuMainFragment).hide(videoMainFragment).hide(newsMainFragment).hide(photoMainFragment)
+                .show(moreMainFragment).commitAllowingStateLoss();
                 break;
             default:
                 break;
