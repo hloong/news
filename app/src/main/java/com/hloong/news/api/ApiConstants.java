@@ -100,8 +100,7 @@ public class ApiConstants {
     public static final String VIDEO_FUN_ID = "V9LG4E6VR";
     // 精品视频
     public static final String VIDEO_CHOICE_ID = "00850FRB";
-    // 知乎ID
-    public static final String ZHIHU_ID = "zhihu_id";
+
 
     /**
      * 天气预报url

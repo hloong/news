@@ -38,9 +38,13 @@ public class TimeUtil {
     public static String dateFormatMDHM = "MM-dd HH:mm";
     public static String dateFormat = "yyyy-MM-dd HH:mm";
     /**
-     * 时间日期格式化到年月日.
+     * 时间日期格式化到年月日 yyyy-MM-dd.
      */
     public static String dateFormatYMD = "yyyy-MM-dd";
+    /**
+     * 时间日期格式化到年月日 yyyyMMdd.
+     */
+    public static String dateFormatymd = "yyyyMMdd";
 
     /**
      * 时间日期格式化到年月日时分.中文显示
@@ -330,6 +334,19 @@ public class TimeUtil {
         }
         return curDateTime;
     }
+    //获取当前系统当天日期 yyyyMMdd
+    public static String getCurrentDayYMD() {
+        String curDateTime = null;
+        try {
+            SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(dateFormatymd);
+            Calendar c = new GregorianCalendar();
+            c.add(Calendar.DAY_OF_MONTH, 0);
+            curDateTime = mSimpleDateFormat.format(c.getTime());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return curDateTime;
+    }
 
     //获取当前系统当天日期
     public static String getCurrentDay2() {
@@ -350,6 +367,19 @@ public class TimeUtil {
         String curDateTime = null;
         try {
             SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(dateFormat);
+            Calendar c = new GregorianCalendar();
+            c.add(Calendar.DAY_OF_MONTH, i);
+            curDateTime = mSimpleDateFormat.format(c.getTime());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return curDateTime;
+    }
+    //获取当前系统前后第几天 yyyyMMdd
+    public static String getNextDayYMD(int i) {
+        String curDateTime = null;
+        try {
+            SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(dateFormatymd);
             Calendar c = new GregorianCalendar();
             c.add(Calendar.DAY_OF_MONTH, i);
             curDateTime = mSimpleDateFormat.format(c.getTime());

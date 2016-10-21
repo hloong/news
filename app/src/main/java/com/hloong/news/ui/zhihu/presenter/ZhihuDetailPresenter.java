@@ -10,7 +10,7 @@ import com.hloong.news.ui.zhihu.contract.ZhihuDetailContract;
 
 public class ZhihuDetailPresenter extends ZhihuDetailContract.Presenter {
     @Override
-    public void getZhihuDetailRequest(final String id) {
+    public void getZhihuDetailRequest(final int id) {
         mRxManage.add(mModel.getZhihuDetail(id).subscribe(new RxSubscriber<ZhihuNewsDetail>(mContext) {
             @Override
             protected void _onNext(ZhihuNewsDetail detail) {

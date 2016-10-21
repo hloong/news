@@ -136,17 +136,22 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailPresenter,NewsDet
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mShareLink == null) {
-                    mShareLink = "";
-                }
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share));
-                intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_contents, mNewsTitle, mShareLink));
-                startActivity(Intent.createChooser(intent, getTitle()));
+                Share();
             }
         });
     }
+
+    private void Share() {
+        if (mShareLink == null) {
+            mShareLink = "";
+        }
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share));
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_contents, mNewsTitle, mShareLink));
+        startActivity(Intent.createChooser(intent, getTitle()));
+    }
+
 
     @Override
     public void returnNewsDetailData(NewsDetail newsDetail) {

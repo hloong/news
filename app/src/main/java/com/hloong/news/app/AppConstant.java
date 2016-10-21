@@ -36,4 +36,7 @@ public class AppConstant {
     public static final String NEWS_IMG_RES = "news_img_res";
     public static final String TRANSITION_ANIMATION_NEWS_PHOTOS = "transition_animation_news_photos";
 
+
+    // 知乎ID
+    public static final String ZHIHU_ID = "zhihu_id";
 }

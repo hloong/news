@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.hloong.base.widget.NormalTitleBar
+        android:id="@+id/ntb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <com.aspsine.irecyclerview.IRecyclerView
         android:id="@+id/irc"
         android:layout_width="match_parent"
@@ -23,4 +27,15 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/main_color"
+        android:src="@drawable/ic_arrow_upward"
+        app:layout_behavior="com.hloong.news.widget.ScrollAwareFABBehavior"/>
+
 </FrameLayout>

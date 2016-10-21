@@ -13,12 +13,12 @@ import rx.Observable;
 
 public interface ZhihuDetailContract {
     interface Model extends BaseModel{
-        Observable<ZhihuNewsDetail> getZhihuDetail(String id);
+        Observable<ZhihuNewsDetail> getZhihuDetail(int id);
     }
     interface View extends BaseView{
-        void returnZhihuDetail(String id,ZhihuNewsDetail detail);
+        void returnZhihuDetail(int id,ZhihuNewsDetail detail);
     }
     abstract class Presenter extends BasePresenter<View,Model>{
-        public abstract void getZhihuDetailRequest(String id);
+        public abstract void getZhihuDetailRequest(int id);
     }
 }
