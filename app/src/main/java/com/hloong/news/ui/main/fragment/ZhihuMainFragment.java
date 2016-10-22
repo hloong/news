@@ -10,7 +10,9 @@ import com.aspsine.irecyclerview.IRecyclerView;
 import com.aspsine.irecyclerview.OnLoadMoreListener;
 import com.aspsine.irecyclerview.OnRefreshListener;
 import com.aspsine.irecyclerview.animation.ScaleInAnimation;
+import com.aspsine.irecyclerview.widget.LoadMoreFooterView;
 import com.hloong.base.base.BaseFragment;
+import com.hloong.base.utils.LogUtil;
 import com.hloong.base.utils.TimeUtil;
 import com.hloong.base.widget.LoadingTip;
 import com.hloong.base.widget.NormalTitleBar;
@@ -60,7 +62,6 @@ public class ZhihuMainFragment extends BaseFragment<ZhihuListPresenter,ZhihuList
         irc.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
-                page = -1;
                 mPresenter.getTopDataRequest();
             }
         });
@@ -68,6 +69,7 @@ public class ZhihuMainFragment extends BaseFragment<ZhihuListPresenter,ZhihuList
             @Override
             public void onLoadMore(View loadMoreView) {
                 String time = TimeUtil.getNextDayYMD(page);
+                LogUtil.d(time);
                 mPresenter.getListDataRequest(time);
             }
         });
@@ -117,7 +119,7 @@ public class ZhihuMainFragment extends BaseFragment<ZhihuListPresenter,ZhihuList
 
     @Override
     public void stopLoading() {
-
+        irc.setLoadMoreStatus(LoadMoreFooterView.Status.THE_END);
     }
 
     @Override

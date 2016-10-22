@@ -32,27 +32,6 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/ll_zhihu_zone"
-        android:layout_width="match_parent"
-        android:background="@drawable/selector_gray_deepgray"
-        android:layout_marginTop="20dp"
-        android:padding="8dp"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="30dp"
-            android:src="@drawable/ic_add"
-            android:layout_marginLeft="15dp"
-            android:layout_height="30dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:text="@string/zone_zhihu_title"
-            android:paddingLeft="15dp"
-            android:textColor="?attr/dayNightTwoTextColor"
-            app:dayNightTwoTextColorAttr="dayNightTwoTextColor"
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
         android:id="@+id/ll_daynight_toggle"
         android:layout_width="match_parent"
         android:background="@drawable/selector_gray_deepgray"
@@ -94,24 +73,6 @@
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/iv_add"
-            android:layout_width="60dp"
-            android:layout_centerInParent="true"
-            android:layout_height="60dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:text="添加更多感兴趣的内容"
-            android:layout_below="@+id/iv_add"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textColor="?attr/dayNightTwoTextColor"
-            app:dayNightTwoTextColorAttr="dayNightTwoTextColor"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
 
 
 </LinearLayout>

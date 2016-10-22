@@ -135,6 +135,7 @@ public class VideosFragment extends BaseFragment<VideosListPresenter,VideosListM
                     irc.setLoadMoreStatus(LoadMoreFooterView.Status.THE_END);
                 }
             }
+            loadedTip.setLoadingTip(LoadingTip.LoadStatus.finish);
         }
     }
 

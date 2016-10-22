@@ -55,8 +55,9 @@
     <string name="friend_zone_title">朋友圈</string>
     <string name="zone_zhihu_title">知乎日报</string>
     <string name="friend_zone_toggle">日夜模式切换</string>
-    <string name="friend_zone_about">关于</string>
+    <string name="friend_zone_about">关于-项目测试，暂时没有关于</string>
     <string name="care_main_title">更多</string>
+    <string name="about_im">IM Demo</string>
 
 
 </resources>

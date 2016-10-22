@@ -39,12 +39,9 @@ public class ZhihuDetailActivity extends BaseActivity<ZhihuDetailPresenter,Zhihu
     AppBarLayout appBar;
     @Bind(R.id.zhihu_body_tv)
     WebView zhihuDetailBodyTv;
-    @Bind(R.id.progress_bar)
-    ProgressBar progressBar;
     @Bind(R.id.fab)
     FloatingActionButton fab;
     private int id;
-    private URLImageGetter mUrlImageGetter;
     private String zhihuTitle;
     private String mShareLink;
 

@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <com.hloong.base.widget.NormalTitleBar
-        android:id="@+id/ntb"
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <com.aspsine.irecyclerview.IRecyclerView
-        android:id="@+id/irc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ntb"
-        android:background="?attr/dayNightBackground"
-        app:dayNightBackgroundAttr="dayNightBackground"
-        app:loadMoreEnabled="true"
-        app:refreshEnabled="true"
-        app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header">
-    </com.aspsine.irecyclerview.IRecyclerView>
+        android:layout_height="match_parent">
 
-    <com.hloong.base.widget.LoadingTip
-        android:id="@+id/loadedTip"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        <com.hloong.base.widget.NormalTitleBar
+            android:id="@+id/ntb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <com.aspsine.irecyclerview.IRecyclerView
+            android:id="@+id/irc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ntb"
+            app:loadMoreEnabled="true"
+            app:refreshEnabled="true"
+            app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header" />
+
+        <com.hloong.base.widget.LoadingTip
+            android:id="@+id/loadedTip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ntb"
+            android:layout_gravity="center"
+            android:gravity="center" />
+    </RelativeLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/main_color"
         android:src="@drawable/ic_arrow_upward"
-        app:layout_behavior="com.hloong.news.widget.ScrollAwareFABBehavior"/>
+        app:backgroundTint="@color/main_color"
+        app:layout_behavior="com.hloong.news.widget.ScrollAwareFABBehavior" />
 
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>
+

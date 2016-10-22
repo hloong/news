@@ -20,8 +20,6 @@ import butterknife.OnClick;
 public class MoreMainFragment extends BaseFragment {
     @Bind(R.id.ll_friend_zone)
     LinearLayout llFriendZone;
-    @Bind(R.id.iv_add)
-    ImageView ivAdd;
     @Bind(R.id.ntb)
     NormalTitleBar ntb;
 
@@ -47,9 +45,5 @@ public class MoreMainFragment extends BaseFragment {
     @OnClick(R.id.ll_daynight_toggle)
     public void dayNightToggle(){
         ChangeModeController.toggleThemeSetting(getActivity());
-    }
-    @OnClick(R.id.ll_daynight_about)
-    public void about(){
-//        AboutActivity.startAction(getContext());
     }
 }

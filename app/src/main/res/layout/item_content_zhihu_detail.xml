@@ -33,11 +33,11 @@
             android:layout_below="@id/news_detail_from_tv"
             android:layout_marginTop="10dp"/>
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp"/>
+        <!--<ProgressBar-->
+            <!--android:id="@+id/progress_bar"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="200dp"/>-->
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
