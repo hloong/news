@@ -25,13 +25,18 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':common')
-    compile project(':library:jcvideoplayer')//视频播放
-    compile project(':library:photoPicker')//图片选择
+    compile project(':library:jcvideoplayer')
+    //视频播放
+    compile project(':library:photoPicker')
+    //图片选择
     compile project(':library:UserGuide')
     compile project(':library:zxingScan')
-    compile project(':library:selectordialog')//常用提示框
-    compile project(':library:irecyclerview')//万能适配器和recyclerview
+    compile project(':library:selectordialog')
+    //常用提示框
+    compile project(':library:irecyclerview')
+    //万能适配器和recyclerview
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
     testCompile 'junit:junit:4.12'
+    compile project(':easeui')
 }

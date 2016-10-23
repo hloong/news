@@ -33,16 +33,16 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.tab_layout)
     CommonTabLayout tabLayout;
 
-    private String[] mTitles = {"首页", "日报","视频","美女","更多"};
+    private String[] mTitles = {"首页", "日报","视频","美图","更多"};
     private int[] mIconUnselectIds = {
             R.drawable.ic_home_normal,
-            R.drawable.ic_zhihu_normal,
+            R.drawable.ic_video_normal,
             R.drawable.ic_video_normal,
             R.drawable.ic_girl_normal,
             R.drawable.ic_more_normal};
     private int[] mIconSelectIds = {
             R.drawable.ic_home_selected,
-            R.drawable.ic_zhihu_selected,
+            R.drawable.ic_video_selected,
             R.drawable.ic_video_selected,
             R.drawable.ic_girl_selected,
             R.drawable.ic_more_selected};
