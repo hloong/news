@@ -10,14 +10,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/easeui" />
             <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/library/UserGuide" />
             <option value="$PROJECT_DIR$/library/irecyclerview" />
             <option value="$PROJECT_DIR$/library/jcvideoplayer" />
             <option value="$PROJECT_DIR$/library/photoPicker" />
             <option value="$PROJECT_DIR$/library/selectordialog" />
-            <option value="$PROJECT_DIR$/library/zxingScan" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
