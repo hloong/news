@@ -35,7 +35,7 @@ public class ZhihuListAdapter extends CommonRecycleViewAdapter<Story> {
         ImageView imageView = helper.getView(R.id.zhihu_photo_iv);
         ImageLoader.display(mContext,imageView,story.getImages().get(0));
         helper.setText(R.id.zhihu_title_tv,story.getTitle());
-        helper.setText(R.id.zhihu_ptime_tv, TimeUtil.getNextDay(page));
+        helper.setText(R.id.zhihu_ptime_tv, TimeUtil.getNextDayYMD(page));
         helper.setOnClickListener(R.id.rl_root, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,8 +45,9 @@ public class ZhihuListAdapter extends CommonRecycleViewAdapter<Story> {
     }
 
     @Override
-    public void add(Story elem) {
+    public void addAllAt(int location, List<Story> elements) {
         page--;
-        super.add(elem);
+        super.addAllAt(location, elements);
     }
+
 }
