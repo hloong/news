@@ -1,1 +1,1 @@
-include ':app', ':common', 'library:jcvideoplayer', ':library:photoPicker', ':library:irecyclerview', 'library:selectordialog', 'library:zxingScan', 'library:UserGuide', ':easeui'
+include ':app', ':common', 'library:jcvideoplayer', ':library:photoPicker', ':library:irecyclerview', 'library:selectordialog'

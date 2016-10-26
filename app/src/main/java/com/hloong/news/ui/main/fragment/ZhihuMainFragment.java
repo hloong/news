@@ -100,13 +100,15 @@ public class ZhihuMainFragment extends BaseFragment<ZhihuListPresenter,ZhihuList
         if (zhihuLastsNews != null){
             page=-1;
             irc.setRefreshing(false);
+            adapter.clear();
             adapter.addAll(zhihuLastsNews.getStories());
         }
     }
 
     @Override
     public void returnMoreData(String date, ZhihuBeforeNews zhihuBeforeNews) {
-        if (date == TimeUtil.getNextDayYMD(page)){//拿到更新的数据了
+        LogUtil.d(date+"------"+TimeUtil.getNextDayYMD(page));
+        if (date.equals(TimeUtil.getNextDayYMD(page))){//拿到更新的数据了
             adapter.addAllAt(-page,zhihuBeforeNews.getStories());
             page--;
         }
