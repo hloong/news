@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 24
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -27,28 +27,28 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:multidex:1.0.0'//分包
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:support-v4:24.2.1'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
-    compile 'com.android.support:cardview-v7:24.2.1'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    //retrofit和rxjava
-    compile 'io.reactivex:rxjava:1.1.6'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.squareup.okhttp3:okhttp:3.3.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile rootProject.ext.dependencies["multidex"]
+    compile rootProject.ext.dependencies["support_v4"]
+    compile rootProject.ext.dependencies["recyclerView"]
+    compile rootProject.ext.dependencies["cardView"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["appcompat"]
+    //rxjava
+    compile rootProject.ext.dependencies["rxjava"]
+    compile rootProject.ext.dependencies["rxandroid"]
+    compile rootProject.ext.dependencies["okhttp3"]
+    compile rootProject.ext.dependencies["okhttp3_log"]
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["retrofit_gson"]
+    compile rootProject.ext.dependencies["retrofit_rxjava"]
+
+    compile rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["glide"]
+    compile rootProject.ext.dependencies["butterknife"]
+    compile rootProject.ext.dependencies["PhotoView"]
+    compile rootProject.ext.dependencies["fab"]
+    compile rootProject.ext.dependencies["FlycoTabLayout"]
 
     compile 'com.baidu.mobstat:mtj-sdk:latest.integration'//baidu 统计
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.commit451:PhotoView:1.2.4'//图片缩放
-    compile 'com.github.clans:fab:1.6.4'//悬浮动画菜单
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'//菜单栏
     testCompile 'junit:junit:4.12'
 }
